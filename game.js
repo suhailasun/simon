@@ -71,6 +71,6 @@ $(document).keypress(function() {
   startGame();
 });
 
-$(document).click(function() {
+$(document).on("click", function() {
   startGame();
-})
+});
