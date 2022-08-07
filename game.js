@@ -37,15 +37,7 @@ function checkAnswer(currentLevel) {
     }
   } else {
     playSound("wrong");
-    $("h1").text("Game Over, Press Any Key to Restart");
-    started = false;
-    level = 0;
-    gamePattern = [];
-    userClickedPattern = [];
-    $("body").addClass("game-over");
-    setTimeout(function() {
-      $("body").removeClass("game-over");
-    }, 200);
+    stopGame();
   }
 }
 
@@ -55,6 +47,18 @@ function startGame() {
     started = true;
     nextSequence();
   }
+}
+
+function stopGame() {
+  $("h1").text("Game Over, Press Any Key to Restart");
+  started = false;
+  level = 0;
+  gamePattern = [];
+  userClickedPattern = [];
+  $("body").addClass("game-over");
+  setTimeout(function() {
+    $("body").removeClass("game-over");
+  }, 200);
 }
 
 // Event Listeners
@@ -68,9 +72,5 @@ $(".btn").on("click", function() {
 });
 
 $(document).keypress(function() {
-  startGame();
-});
-
-$(document).on("click", function() {
   startGame();
 });
