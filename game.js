@@ -59,7 +59,7 @@ function startGame() {
 
 // Event Listeners
 
-$(".btn").click(function() {
+$(".btn").on("click", function() {
   let userChosenColour = this.id;
   animatePress(userChosenColour);
   playSound(userChosenColour);
