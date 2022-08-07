@@ -49,6 +49,14 @@ function checkAnswer(currentLevel) {
   }
 }
 
+function startGame() {
+  if (!started) {
+    $("h1").text("Level 0");
+    started = true;
+    nextSequence();
+  }
+}
+
 // Event Listeners
 
 $(".btn").click(function() {
@@ -60,9 +68,9 @@ $(".btn").click(function() {
 });
 
 $(document).keypress(function() {
-  if (!started) {
-    $("h1").text("Level 0");
-    started = true;
-    nextSequence();
-  }
+  startGame();
 });
+
+$(document).click(function() {
+  startGame();
+})
